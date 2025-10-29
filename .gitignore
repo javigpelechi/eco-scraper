@@ -5,3 +5,8 @@ seen.db
 .venv/
 __pycache__/
 test_teams.py
+# Ignorar archivos temporales con punto delante (menos la carpeta .github)
+.849*
+.*.swp
+.DS_Store
+!.github/
