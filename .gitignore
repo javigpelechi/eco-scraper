@@ -4,3 +4,4 @@ seen.db
 .vscode/
 .venv/
 __pycache__/
+test_teams.py
