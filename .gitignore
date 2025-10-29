@@ -1,0 +1,6 @@
+﻿.env
+seen.db
+*.log
+.vscode/
+.venv/
+__pycache__/

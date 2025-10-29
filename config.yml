@@ -1,0 +1,15 @@
+topics:
+  - Iberdrola
+  - CNMC
+  - Pedro Azagra
+  - Ignacio Sánchez Galán
+  - Teresa Ribera
+search:
+  base: "https://www.eleconomista.es"
+  template: "https://www.eleconomista.es/buscador/resultados.php?fondo={query}"
+  timeout_seconds: 15
+  pause_between_topics_ms: 800
+notify:
+  batch_per_topic: true
+  max_links_per_message: 10
+  include_snippets: false
