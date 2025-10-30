@@ -285,15 +285,26 @@ def post_to_teams(webhook_url: str, text: str):
 def format_batch_message(topic: str, items: List[Tuple[str, str, str]], max_links: int) -> str:
     """
     items: lista de (title, url, date_str)
+    Formato:
+    🗞️ Nuevas noticias sobre CNMC (4):
+    
+    30/10  
+    Título  
+    URL
     """
     count = min(len(items), max_links)
-    lines = [f"🗞️ **Nuevas noticias sobre _{topic}_** ({count}):"]
+    lines = [f"🗞️ **Nuevas noticias sobre _{topic}_** ({count}):", ""]
+
     for title, url, d in items[:max_links]:
-        ttl = title if title and len(title) <= 180 else (title[:177] + "…") if title else url
-        lines.append(f"• {d} — {ttl}\n  {url}")
+        ttl = title.strip() if title else url
+        # tres líneas por noticia
+        lines.append(f"{d}\n{ttl}\n{url}\n")
+
     if len(items) > max_links:
         lines.append(f"… y {len(items) - max_links} más.")
+    
     return "\n".join(lines)
+
 
 def format_single_message(topic: str, title: str, url: str, d: str) -> str:
     ttl = title if title and len(title) <= 180 else (title[:177] + "…") if title else url
