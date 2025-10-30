@@ -1,12 +1,12 @@
 ﻿.env
-seen.db
 *.log
 .vscode/
 .venv/
 __pycache__/
 test_teams.py
-# Ignorar archivos temporales con punto delante (menos la carpeta .github)
+# Ignorar archivos temporales
 .849*
 .*.swp
 .DS_Store
+# ¡Importante! No ignores la carpeta data ni su .db
 !.github/

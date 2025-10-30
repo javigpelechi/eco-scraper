@@ -26,7 +26,7 @@ except Exception:
 # -----------------------------
 
 CONFIG_PATH = "config.yml"
-DB_PATH = "seen.db"
+DB_PATH = os.getenv("DB_PATH", "data/seen.db")
 USER_AGENT = (
     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
     "AppleWebKit/537.36 (KHTML, like Gecko) "
@@ -64,6 +64,9 @@ def load_yaml(path: str) -> dict:
 # -----------------------------
 
 def init_db():
+    # Asegura que data/ exista
+    os.makedirs(os.path.dirname(DB_PATH), exist_ok=True)
+
     conn = sqlite3.connect(DB_PATH)
     conn.execute(
         """
